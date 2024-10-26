@@ -1,0 +1,17 @@
+{
+  "name": "speedtest-complaint-js",
+  "version": "1.0.0",
+  "main": "src/index",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "croner": "^9.0.0",
+    "speedtest-net": "^2.2.0"
+  }
+}
