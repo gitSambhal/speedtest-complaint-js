@@ -51,7 +51,7 @@ npm install
 ### Usage
 Run the script:
 ```bash
-node index.js
+npm start
 ```
 The script will automatically run speed tests based on the configuration. 
 
