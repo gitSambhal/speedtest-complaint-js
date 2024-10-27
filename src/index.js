@@ -16,6 +16,16 @@ const config = {
   // Complaint message template
   complaintMessage:
     "[ISP_HANDLES], I'm experiencing very slow internet speeds ([DOWNLOAD_SPEED] down/[UPLOAD_SPEED] up) compared to the [PROMISED_SPEED]Mbps I'm paying for. Please investigate. Proof: [SPEEDTEST_URL]",
+  // Hashtags to include in the complaint post without # symbol
+  hashtags: [
+    'InternetSpeedComplaint',
+    'BadInternet',
+    'AirtelAirFiber',
+    'AirFiber',
+    'Airtel',
+    'Fiber',
+    'AirtelIndia',
+  ],
 };
 
 async function checkAndPostSpeedComplaint(result) {
@@ -27,6 +37,7 @@ async function checkAndPostSpeedComplaint(result) {
   }
 
   const handles = config.xHandles.join(' ');
+  const hashtags = config.hashtags.join();
 
   // Populate the message template
   let post = config.complaintMessage.replace('[ISP_HANDLES]', handles);
@@ -35,7 +46,8 @@ async function checkAndPostSpeedComplaint(result) {
   post = post.replace('[PROMISED_SPEED]', config.promisedSpeed.toString());
   post = post.replace('[SPEEDTEST_URL]', result.speedTestUrl);
 
-  const url = `https://x.com/intent/post?text=${encodeURI(post)}`;
+  const text = encodeURI(post);
+  const url = `https://x.com/intent/post?text=${text}&hashtags=${hashtags}`;
   console.log(url);
   await openLink(url);
 }

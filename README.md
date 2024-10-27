@@ -47,6 +47,7 @@ npm install
 	  - Cron expression for scheduling (`cronExpression`)
 	  - Should run as cron job (`runAsCronJob`)
 	  - Message template (`complaintMessage`)
+	  - Hashtags (`hashtags`)
 
 ### Usage
 Run the script:
