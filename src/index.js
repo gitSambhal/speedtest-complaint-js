@@ -46,7 +46,7 @@ async function checkAndPostSpeedComplaint(result) {
   post = post.replace('[PROMISED_SPEED]', config.promisedSpeed.toString());
   post = post.replace('[SPEEDTEST_URL]', result.speedTestUrl);
 
-  const text = encodeURI(post);
+  const text = encodeURIComponent(post);
   const url = `https://x.com/intent/post?text=${text}&hashtags=${hashtags}`;
   console.log(url);
   await openLink(url);
